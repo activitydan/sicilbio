@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: theme('colors.paper');
+    scroll-behavior: auto; /* Lenis owns smooth scrolling */
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-tomato text-paper;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* ---------------------------------------------------------
+     ASSET PLACEHOLDER
+     Segnaposto verde per immagini/video non ancora disponibili.
+     Sostituzione futura:
+       - Immagine: rimuovere il contenuto interno e aggiungere
+         <img src="..." class="h-full w-full object-cover" />
+       - Video: aggiungere <video autoplay muted loop playsinline>
+     Il contenitore mantiene aspect-ratio, radius e overlay.
+  --------------------------------------------------------- */
+  .asset-placeholder {
+    @apply relative w-full h-full overflow-hidden bg-placeholder;
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.045) 0px,
+        rgba(255, 255, 255, 0.045) 1px,
+        transparent 1px,
+        transparent 14px
+      ),
+      linear-gradient(160deg, theme('colors.placeholder.light') 0%, theme('colors.placeholder.DEFAULT') 45%, theme('colors.placeholder.dark') 100%);
+  }
+
+  .asset-placeholder__content {
+    @apply absolute inset-0 flex flex-col items-center justify-center gap-3 text-paper/50;
+  }
+
+  .asset-placeholder__label {
+    @apply text-[11px] uppercase tracking-widest2 font-medium text-paper/45;
+  }
+
+  .asset-placeholder::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,0.28), transparent 60%);
+  }
+
+  /* Grain overlay: dona texture editoriale/filmica a tutto il sito */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-3 text-xs uppercase tracking-widest2 text-tomato font-semibold;
+  }
+
+  .kicker::before {
+    content: '';
+    @apply w-6 h-px bg-tomato;
+  }
+
+  .btn-magnetic {
+    @apply relative inline-flex items-center justify-center gap-2 px-9 py-4 rounded-full bg-tomato text-paper font-semibold text-sm tracking-wide overflow-hidden;
+    transition: background-color 0.4s theme('transitionTimingFunction.premium'), color 0.4s theme('transitionTimingFunction.premium');
+  }
+
+  .btn-magnetic:hover {
+    @apply bg-paper text-ink;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-ink border-b border-ink/30 pb-1;
+    transition: border-color 0.3s ease, opacity 0.3s ease;
+  }
+
+  .btn-ghost:hover {
+    @apply border-tomato text-tomato;
+  }
+
+  .split-line {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+  }
+
+  .split-line > span {
+    display: inline-block;
+    will-change: transform;
+  }
+
+  [data-manifesto-text] [data-line] {
+    display: block;
+  }
+
+  [data-reveal] {
+    opacity: 0;
+  }
+
+  /* --- Card varietà: zoom immagine + rise descrizione on hover (tilt gestito via JS) --- */
+  .variety-card {
+    perspective: 1200px;
+    transition: box-shadow 0.5s theme('transitionTimingFunction.premium');
+    will-change: transform;
+  }
+
+  .variety-card .asset-placeholder {
+    transition: transform 0.7s theme('transitionTimingFunction.premium');
+  }
+
+  .variety-card:hover .asset-placeholder {
+    transform: scale(1.06);
+  }
+
+  .variety-desc {
+    opacity: 0.82;
+    transform: translateY(10px);
+    transition: opacity 0.45s ease, transform 0.45s theme('transitionTimingFunction.premium');
+  }
+
+  .variety-card:hover .variety-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    @apply relative text-sm tracking-wide;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 h-px w-0 bg-tomato;
+    transition: width 0.35s theme('transitionTimingFunction.premium');
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* --- Stato nav: trasparente su hero (testo chiaro) -> solida on scroll (testo scuro) --- */
+  #site-nav {
+    color: theme('colors.paper');
+  }
+
+  #site-nav .nav-link::after {
+    background-color: theme('colors.gold');
+  }
+
+  #site-nav.is-solid {
+    @apply bg-paper/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)];
+    color: theme('colors.ink');
+  }
+
+  #site-nav.is-solid .nav-link::after {
+    background-color: theme('colors.tomato.DEFAULT');
+  }
+}
+
+@layer utilities {
+  .container-edit {
+    @apply mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16;
+  }
+}
