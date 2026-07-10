@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: theme('colors.paper');
+    scroll-behavior: auto; /* Lenis owns smooth scrolling */
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-tomato text-paper;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* ---------------------------------------------------------
+     ASSET PLACEHOLDER
+     Segnaposto verde per immagini/video non ancora disponibili.
+     Sostituzione futura:
+       - Immagine: rimuovere il contenuto interno e aggiungere
+         <img src="..." class="h-full w-full object-contain bg-paper2" />
+         (object-contain: nessun taglio della foto; il contenitore resta
+         della stessa dimensione delle altre finestre, testi allineati)
+       - Video: aggiungere <video autoplay muted loop playsinline>
+     Il contenitore mantiene aspect-ratio, radius e overlay.
+  --------------------------------------------------------- */
+  .asset-placeholder {
+    @apply relative w-full h-full overflow-hidden bg-placeholder;
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.045) 0px,
+        rgba(255, 255, 255, 0.045) 1px,
+        transparent 1px,
+        transparent 14px
+      ),
+      linear-gradient(160deg, theme('colors.placeholder.light') 0%, theme('colors.placeholder.DEFAULT') 45%, theme('colors.placeholder.dark') 100%);
+  }
+
+  .asset-placeholder__content {
+    @apply absolute inset-0 flex flex-col items-center justify-center gap-3 text-paper/50;
+  }
+
+  .asset-placeholder__label {
+    @apply text-[11px] uppercase tracking-widest2 font-medium text-paper/45;
+  }
+
+  .asset-placeholder::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,0.28), transparent 60%);
+  }
+
+  /* Grain overlay: dona texture editoriale/filmica a tutto il sito */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-3 text-xs uppercase tracking-widest2 text-tomato font-semibold;
+  }
+
+  .kicker::before {
+    content: '';
+    @apply w-6 h-px bg-tomato;
+  }
+
+  .btn-magnetic {
+    @apply relative inline-flex items-center justify-center gap-2 px-9 py-4 rounded-full bg-tomato text-paper font-semibold text-sm tracking-wide overflow-hidden;
+    transition: background-color 0.4s theme('transitionTimingFunction.premium'), color 0.4s theme('transitionTimingFunction.premium');
+  }
+
+  .btn-magnetic:hover {
+    @apply bg-paper text-ink;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-ink border-b border-ink/30 pb-1;
+    transition: border-color 0.3s ease, opacity 0.3s ease;
+  }
+
+  .btn-ghost:hover {
+    @apply border-tomato text-tomato;
+  }
+
+  .split-line {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+  }
+
+  .split-line > span {
+    display: inline-block;
+    will-change: transform;
+  }
+
+  [data-manifesto-text] [data-line] {
+    display: block;
+  }
+
+  [data-reveal] {
+    opacity: 0;
+  }
+
+  /* --- Card varietà: zoom immagine + rise descrizione on hover (tilt gestito via JS) --- */
+  .variety-card {
+    perspective: 1200px;
+    transition: box-shadow 0.5s theme('transitionTimingFunction.premium');
+    will-change: transform;
+  }
+
+  .variety-card .asset-placeholder,
+  .variety-card > img {
+    transition: transform 0.7s theme('transitionTimingFunction.premium');
+    /* Evita la sfocatura temporanea che Chrome mostra quando promuove
+       l'immagine a un nuovo layer GPU proprio nel momento dell'hover:
+       qui il layer viene creato subito, non "a scatto" durante la transizione. */
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Padding inferiore solo sulle foto reali (non sui placeholder):
+     lascia respiro tra la foto e il titolo, sempre ancorato in basso. */
+  .variety-card > img {
+    padding-bottom: 3rem;
+    box-sizing: border-box;
+  }
+
+  .variety-card:hover .asset-placeholder,
+  .variety-card:hover > img {
+    transform: scale(1.06);
+  }
+
+  /* Alcune foto prodotto partono già ingrandite (inquadratura più stretta
+     nel sorgente): lo zoom base va sommato all'hover, mai sostituito,
+     altrimenti al passaggio del mouse l'immagine "rimpicciolirebbe". */
+  .variety-card.zoom-sm > img {
+    transform: scale(1.1);
+  }
+
+  .variety-card.zoom-sm:hover > img {
+    transform: scale(1.166);
+  }
+
+  .variety-card.zoom-md > img {
+    transform: scale(1.25);
+  }
+
+  .variety-card.zoom-md:hover > img {
+    transform: scale(1.32);
+  }
+
+  .variety-card.zoom-lg > img {
+    transform: scale(1.55);
+  }
+
+  .variety-card.zoom-lg:hover > img {
+    transform: scale(1.64);
+  }
+
+  /* Placeholder chiaro nelle finestre prodotto: qui il testo è scuro
+     (per restare coerente con le foto a sfondo bianco), quindi il verde
+     scuro standard dei placeholder andrebbe illeggibile. */
+  .variety-card .asset-placeholder {
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.025) 0px,
+        rgba(0, 0, 0, 0.025) 1px,
+        transparent 1px,
+        transparent 14px
+      ),
+      linear-gradient(160deg, #f2ece0 0%, #e8dfcd 45%, #ded2b8 100%);
+  }
+
+  .variety-card .asset-placeholder::after {
+    display: none;
+  }
+
+  .variety-card .asset-placeholder__content {
+    @apply text-ink/35;
+  }
+
+  .variety-card .asset-placeholder__label {
+    @apply text-ink/30;
+  }
+
+  /* Nessun overlay a gradiente sulle foto reali: testo scuro con una
+     leggera ombreggiatura chiara, leggibile sia su foto che su placeholder. */
+  .variety-overlay h3 {
+    text-shadow:
+      0 1px 3px rgba(255, 255, 255, 0.5),
+      0 2px 8px rgba(255, 255, 255, 0.3);
+  }
+
+  .nav-link {
+    @apply relative text-sm tracking-wide;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 h-px w-0 bg-tomato;
+    transition: width 0.35s theme('transitionTimingFunction.premium');
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* --- Stato nav: trasparente su hero (testo chiaro) -> solida on scroll (testo scuro) --- */
+  #site-nav {
+    color: theme('colors.paper');
+  }
+
+  #site-nav .nav-link::after {
+    background-color: theme('colors.gold');
+  }
+
+  #site-nav.is-solid {
+    @apply bg-paper/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)];
+    color: theme('colors.ink');
+  }
+
+  #site-nav.is-solid .nav-link::after {
+    background-color: theme('colors.tomato.DEFAULT');
+  }
+}
+
+@layer utilities {
+  .container-edit {
+    @apply mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16;
+  }
+}
