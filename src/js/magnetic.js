@@ -3,8 +3,12 @@ import { prefersReducedMotion } from './motion-state.js';
 
 // Micro-interazione (hover.dev style): il bottone segue leggermente il cursore,
 // rinforzando l'invito a cliccare sui due CTA principali del sito.
+// Solo su dispositivi con hover reale (mouse): su touch il tap può generare
+// un mousemove sintetico senza il successivo mouseleave, lasciando il
+// bottone spostato "a vita" (es. dopo un redirect e ritorno alla pagina).
 export function initMagnetic() {
   if (prefersReducedMotion) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
   document.querySelectorAll('[data-magnetic]').forEach((btn) => {
     const strength = 0.35;

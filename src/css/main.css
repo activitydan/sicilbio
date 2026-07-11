@@ -150,6 +150,14 @@
   /* Alcune foto prodotto partono già ingrandite (inquadratura più stretta
      nel sorgente): lo zoom base va sommato all'hover, mai sostituito,
      altrimenti al passaggio del mouse l'immagine "rimpicciolirebbe". */
+  .variety-card.zoom-xs > img {
+    transform: scale(0.9);
+  }
+
+  .variety-card.zoom-xs:hover > img {
+    transform: scale(0.954);
+  }
+
   .variety-card.zoom-sm > img {
     transform: scale(1.1);
   }

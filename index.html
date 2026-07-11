@@ -3,8 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sicilbio — Pomodoro di Sicilia</title>
-  <meta name="description" content="Sicilbio coltiva pomodori in Sicilia: pieno campo, filiera corta, qualità autentica dal sole al raccolto." />
+
+  <!-- ASSET: dominio di produzione — sostituire tutte le occorrenze di
+       https://www.sicilbio.it/ con l'URL reale una volta noto il deploy -->
+  <title>Sicilbio — Pomodori di Sicilia coltivati in pieno campo</title>
+  <meta name="description" content="Sicilbio coltiva pomodori in Sicilia: pieno campo, filiera corta, qualità autentica dal sole al raccolto. Agricoltura biologica a Marina di Ragusa." />
+  <meta name="keywords" content="Sicilbio, pomodori Sicilia, pomodoro ciliegino, pomodoro datterino, agricoltura biologica, filiera corta, ortofrutta Ragusa, Marina di Ragusa, prodotti Km0" />
+  <meta name="author" content="Sicilbio" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="Italian" />
+  <meta name="theme-color" content="#b8321c" />
+  <link rel="canonical" href="https://www.sicilbio.it/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sicilbio" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:url" content="https://www.sicilbio.it/" />
+  <meta property="og:title" content="Sicilbio — Pomodori di Sicilia coltivati in pieno campo" />
+  <meta property="og:description" content="Sicilbio coltiva pomodori in Sicilia: pieno campo, filiera corta, qualità autentica dal sole al raccolto." />
+  <meta property="og:image" content="https://www.sicilbio.it/assets/hero/hero-pomodori.jpg" />
+  <meta property="og:image:width" content="2400" />
+  <meta property="og:image:height" content="1600" />
+  <meta property="og:image:alt" content="Pomodori Sicilbio appena raccolti" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sicilbio — Pomodori di Sicilia coltivati in pieno campo" />
+  <meta name="twitter:description" content="Sicilbio coltiva pomodori in Sicilia: pieno campo, filiera corta, qualità autentica dal sole al raccolto." />
+  <meta name="twitter:image" content="https://www.sicilbio.it/assets/hero/hero-pomodori.jpg" />
+  <meta name="twitter:image:alt" content="Pomodori Sicilbio appena raccolti" />
+
+  <!-- ASSET: favicon — aggiungere i file reali (ricavati dal logo) in /public -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Google Fonts: Fraunces (display editoriale) + Inter (testo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,6 +45,28 @@
 
   <!-- Font Awesome (libreria secondaria, solo per 2 icone non presenti in Lucide) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Dati strutturati (Organization) per rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sicilbio",
+    "url": "https://www.sicilbio.it/",
+    "logo": "https://www.sicilbio.it/assets/hero/hero-pomodori.jpg",
+    "description": "Sicilbio coltiva pomodori in Sicilia: pieno campo, filiera corta, qualità autentica dal sole al raccolto.",
+    "email": "sales@sicilbio.it",
+    "telephone": "+39-0932-615337",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Contrada Castellana",
+      "addressLocality": "Marina di Ragusa",
+      "postalCode": "97010",
+      "addressRegion": "RG",
+      "addressCountry": "IT"
+    }
+  }
+  </script>
 
   <script type="module" src="/src/main.js"></script>
 </head>
@@ -65,6 +119,7 @@
     <a href="#territorio" class="mobile-link text-paper font-display text-3xl">Territorio</a>
     <a href="#varieta" class="mobile-link text-paper font-display text-3xl">Varietà</a>
     <a href="#certificazioni" class="mobile-link text-paper font-display text-3xl">Certificati</a>
+    <a href="#calendario" class="mobile-link text-paper font-display text-3xl">Calendario</a>
     <a href="#cta" class="mobile-link text-paper font-display text-3xl">Contatti</a>
     <button id="menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center text-paper" aria-label="Chiudi menu">
       <i data-lucide="x" class="w-7 h-7"></i>
@@ -105,7 +160,7 @@
 
         <div class="mt-10 flex items-center gap-6" data-hero-fade>
           <a href="#chi-siamo" class="btn-magnetic" data-magnetic>
-            <span>Scopri la filiera</span>
+            <span>Chi siamo</span>
             <i data-lucide="arrow-down" class="w-4 h-4"></i>
           </a>
           <a href="#cta" class="text-paper/85 text-sm font-semibold border-b border-paper/30 pb-1 hover:border-paper transition-colors">
@@ -294,12 +349,7 @@
           </article>
 
           <article class="variety-card group relative aspect-square rounded-[28px] overflow-hidden" data-reveal>
-            <div class="asset-placeholder h-full w-full">
-              <div class="asset-placeholder__content">
-                <i data-lucide="image" class="w-6 h-6"></i>
-                <span class="asset-placeholder__label">San Marzano</span>
-              </div>
-            </div>
+            <img src="/assets/varieta/san-marzano.png" alt="San Marzano" class="h-full w-full object-contain bg-white" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
               <h3 class="font-display text-ink text-2xl">San Marzano</h3>
             </div>
@@ -326,7 +376,7 @@
             </div>
           </article>
 
-          <article class="variety-card group relative aspect-square rounded-[28px] overflow-hidden" data-reveal>
+          <article class="variety-card zoom-sm group relative aspect-square rounded-[28px] overflow-hidden" data-reveal>
             <img src="/assets/varieta/pomodoro-colorato.jpg" alt="Pomodoro Colorato" class="h-full w-full object-contain bg-white" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
               <h3 class="font-display text-ink text-2xl">Pomodoro Colorato</h3>
@@ -473,10 +523,11 @@
               <img src="/assets/certificazioni/demeter.png" alt="Certificazione Demeter" class="h-full w-full object-contain" />
             </div>
           </div>
+          <p class="mt-4 text-xs text-ink/50 tracking-wide">GGN: 8099999403352</p>
         </div>
       </div>
 
-      <div class="mt-16 md:mt-24 pt-10 border-t border-ink/10" data-reveal>
+      <div id="calendario" class="mt-16 md:mt-24 pt-10 border-t border-ink/10" data-reveal>
         <span class="kicker">Calendario di produzione</span>
         <p class="mt-4 text-ink/60 text-sm leading-relaxed max-w-lg">
           La disponibilità stagionale delle nostre varietà, mese per mese.
@@ -503,7 +554,7 @@
         <h2 class="mt-6 font-display text-paper text-[10vw] md:text-6xl leading-[1.05] max-w-3xl" data-reveal>
           Porta in tavola<br/> il sapore della Sicilia.
         </h2>
-        <a href="mailto:info@sicilbio.it" class="btn-magnetic mt-12" data-magnetic>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@sicilbio.com" target="_blank" rel="noopener noreferrer" class="btn-magnetic mt-12" data-magnetic>
           <span>Richiedi informazioni</span>
           <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
@@ -546,11 +597,10 @@
         <div>
           <p class="text-xs uppercase tracking-widest2 text-paper/40 mb-5">Contatti</p>
           <ul class="space-y-3 text-sm">
-            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i> Contrada [—], Sicilia</li>
-            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 shrink-0"></i> info@sicilbio.it</li>
-            <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0"></i> +39 000 000 0000</li>
+            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i> Contrada Castellana, 97010 Marina di Ragusa (RG)</li>
+            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 shrink-0"></i> sales@sicilbio.it</li>
+            <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0"></i> +39 0932 615337</li>
           </ul>
-          <!-- TODO: sostituire con dati reali -->
         </div>
       </div>
 
