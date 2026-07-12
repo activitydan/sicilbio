@@ -47,6 +47,30 @@
       linear-gradient(160deg, theme('colors.placeholder.light') 0%, theme('colors.placeholder.DEFAULT') 45%, theme('colors.placeholder.dark') 100%);
   }
 
+  /* ---------------------------------------------------------
+     LOGO PLACEHOLDER
+     Variante compatta dell'asset-placeholder per gli slot del
+     wordmark/logo (nav, preloader, menu mobile, footer).
+     Sostituzione futura: rimuovere il contenuto interno e
+     aggiungere <img src="/assets/logo.svg" class="h-full w-auto" />
+  --------------------------------------------------------- */
+  .logo-placeholder {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-placeholder shrink-0;
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.045) 0px,
+        rgba(255, 255, 255, 0.045) 1px,
+        transparent 1px,
+        transparent 14px
+      ),
+      linear-gradient(160deg, theme('colors.placeholder.light') 0%, theme('colors.placeholder.DEFAULT') 45%, theme('colors.placeholder.dark') 100%);
+  }
+
+  .logo-placeholder span {
+    @apply text-[9px] uppercase tracking-widest2 font-medium text-paper/55 px-2 text-center leading-tight;
+  }
+
   .asset-placeholder__content {
     @apply absolute inset-0 flex flex-col items-center justify-center gap-3 text-paper/50;
   }
