@@ -263,9 +263,17 @@
     @apply w-full;
   }
 
-  /* --- Stato nav: trasparente su hero (testo chiaro) -> solida on scroll (testo scuro) --- */
+  /* --- Stato nav: trasparente su hero (testo chiaro) -> solida on scroll (testo scuro) ---
+     Transizioni separate: lo scivolamento in nascondimento (transform) è
+     rapido apposta, per ridurre al minimo la finestra in cui la nav (chiara)
+     resta a metà schermo mentre scorre via sopra sezioni a sfondo scuro
+     (es. il manifesto pinnato) — altrimenti si vede una riga chiara
+     attraversare lo schermo durante lo scroll verso il basso. */
   #site-nav {
     color: theme('colors.paper');
+    transition: transform 0.2s theme('transitionTimingFunction.premium'),
+      background-color 0.4s ease, color 0.4s ease, backdrop-filter 0.4s ease,
+      box-shadow 0.4s ease;
   }
 
   #site-nav .nav-link::after {
