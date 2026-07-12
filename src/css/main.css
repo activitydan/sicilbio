@@ -152,7 +152,7 @@
   }
 
   .variety-card .asset-placeholder,
-  .variety-card > img {
+  .variety-card > img.variety-photo {
     transition: transform 0.7s theme('transitionTimingFunction.premium');
     /* Evita la sfocatura temporanea che Chrome mostra quando promuove
        l'immagine a un nuovo layer GPU proprio nel momento dell'hover:
@@ -163,48 +163,48 @@
 
   /* Padding inferiore solo sulle foto reali (non sui placeholder):
      lascia respiro tra la foto e il titolo, sempre ancorato in basso. */
-  .variety-card > img {
+  .variety-card > img.variety-photo {
     padding-bottom: 3rem;
     box-sizing: border-box;
   }
 
   .variety-card:hover .asset-placeholder,
-  .variety-card:hover > img {
+  .variety-card:hover > img.variety-photo {
     transform: scale(1.06);
   }
 
   /* Alcune foto prodotto partono già ingrandite (inquadratura più stretta
      nel sorgente): lo zoom base va sommato all'hover, mai sostituito,
      altrimenti al passaggio del mouse l'immagine "rimpicciolirebbe". */
-  .variety-card.zoom-xs > img {
+  .variety-card.zoom-xs > img.variety-photo {
     transform: scale(0.9);
   }
 
-  .variety-card.zoom-xs:hover > img {
+  .variety-card.zoom-xs:hover > img.variety-photo {
     transform: scale(0.954);
   }
 
-  .variety-card.zoom-sm > img {
+  .variety-card.zoom-sm > img.variety-photo {
     transform: scale(1.1);
   }
 
-  .variety-card.zoom-sm:hover > img {
+  .variety-card.zoom-sm:hover > img.variety-photo {
     transform: scale(1.166);
   }
 
-  .variety-card.zoom-md > img {
+  .variety-card.zoom-md > img.variety-photo {
     transform: scale(1.25);
   }
 
-  .variety-card.zoom-md:hover > img {
+  .variety-card.zoom-md:hover > img.variety-photo {
     transform: scale(1.32);
   }
 
-  .variety-card.zoom-lg > img {
+  .variety-card.zoom-lg > img.variety-photo {
     transform: scale(1.55);
   }
 
-  .variety-card.zoom-lg:hover > img {
+  .variety-card.zoom-lg:hover > img.variety-photo {
     transform: scale(1.64);
   }
 
