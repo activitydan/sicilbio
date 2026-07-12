@@ -298,3 +298,37 @@
     @apply mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16;
   }
 }
+
+/* Fuori da @layer apposta: in Tailwind le utility (usate qui su logo e link
+   del menu mobile, es. w-[300px], text-3xl) hanno sempre priorità su
+   qualunque regola dentro @layer base/components, indipendentemente
+   dall'ordine nel file — per sovrascriverle davvero servono regole non
+   "layerizzate", che hanno sempre la precedenza più alta.
+
+   Menu mobile: su schermi bassi (telefono in orizzontale) logo, testo e
+   spaziature a piena misura non entrano nell'altezza disponibile — il menu
+   resta comunque scorrevole come rete di sicurezza (overflow-y-auto in
+   HTML), ma qui si riduce tutto per farcelo stare senza scorrere nella
+   maggior parte dei casi. */
+@media (max-height: 500px) {
+  #mobile-menu {
+    /* Da centrato (va bene su schermi alti) a ancorato in alto con
+       scroll: centrare contenuto più alto del contenitore lo taglia sia
+       sopra sia sotto, e la parte in eccesso in alto non è raggiungibile
+       scrollando (limite noto di justify-content:center + overflow). */
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding-top: 4.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .mobile-menu-logo {
+    width: 160px;
+    height: 70px;
+  }
+
+  .mobile-link {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
