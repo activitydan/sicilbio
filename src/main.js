@@ -11,7 +11,7 @@ import {
 import { initLenis, scrollToTarget } from './js/lenis.js';
 import { initPreloader } from './js/preloader.js';
 import { initNav } from './js/nav.js';
-import { playHeroIntro, initHeroScroll } from './js/hero.js';
+import { prepareHeroIntro, playHeroIntro, initHeroScroll } from './js/hero.js';
 import { initMarquee } from './js/marquee.js';
 import { initReveal } from './js/reveal.js';
 import { initCounters } from './js/counters.js';
@@ -37,6 +37,11 @@ const backToTop = document.getElementById('back-to-top');
 backToTop?.addEventListener('click', () => scrollToTarget(0));
 
 initLenis();
+
+// Nasconde subito il testo hero, prima che il preloader inizi a scorrere via:
+// evita che resti visibile "fermo" durante lo scivolamento e poi scatti
+// indietro per rifare l'animazione (vedi commento in hero.js).
+prepareHeroIntro();
 
 initPreloader().then(() => {
   playHeroIntro();

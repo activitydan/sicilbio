@@ -4,9 +4,29 @@ import { prefersReducedMotion } from './motion-state.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Porta l'hero nel suo stato "nascosto" pre-animazione. Va chiamata subito,
+// prima che il preloader inizi a scorrere via: se lo stato iniziale viene
+// impostato solo a preloader già sparito (come in playHeroIntro), il testo
+// resta visibile "fermo" per la durata dello scivolamento del preloader e
+// solo dopo scatta indietro e riparte con l'animazione — un flash ben visibile.
+export function prepareHeroIntro() {
+  const lines = gsap.utils.toArray('[data-hero-line] > span');
+  const fadeEls = gsap.utils.toArray('[data-hero-fade]');
+  const heroImage = document.querySelector('[data-hero-image] .asset-placeholder, [data-hero-image] img, [data-hero-image] video');
+  const cue = document.querySelector('[data-scroll-cue]');
+
+  if (prefersReducedMotion) return;
+
+  gsap.set(lines, { yPercent: 110 });
+  gsap.set(fadeEls, { opacity: 0, y: 24 });
+  if (heroImage) gsap.set(heroImage, { scale: 1.12 });
+  if (cue) gsap.set(cue, { opacity: 0 });
+}
+
 // Timeline d'ingresso dell'hero: eseguita una sola volta, subito dopo il preloader.
 // Le righe del titolo entrano mascherate (clip via overflow-hidden sul parent),
 // per un reveal tipografico pulito e non decorativo.
+// Richiede che prepareHeroIntro() sia già stato chiamato in precedenza.
 export function playHeroIntro() {
   const lines = gsap.utils.toArray('[data-hero-line] > span');
   const fadeEls = gsap.utils.toArray('[data-hero-fade]');
@@ -17,11 +37,6 @@ export function playHeroIntro() {
     gsap.set([...lines, ...fadeEls], { opacity: 1, y: 0 });
     return;
   }
-
-  gsap.set(lines, { yPercent: 110 });
-  gsap.set(fadeEls, { opacity: 0, y: 24 });
-  if (heroImage) gsap.set(heroImage, { scale: 1.12 });
-  if (cue) gsap.set(cue, { opacity: 0 });
 
   const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
