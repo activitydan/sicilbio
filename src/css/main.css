@@ -6,6 +6,7 @@
   html {
     background-color: theme('colors.paper');
     scroll-behavior: auto; /* Lenis owns smooth scrolling */
+    color-scheme: only light;
   }
 
   body {
