@@ -28,9 +28,20 @@ export function initPreloader() {
     };
 
     const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
-    const pageReady = document.readyState === 'complete'
-      ? Promise.resolve()
-      : new Promise((r) => window.addEventListener('load', r, { once: true }));
+
+    // Attende solo la foto hero (quella visibile subito dopo il preloader),
+    // non l'intero window 'load': quest'ultimo include anche immagini più
+    // pesanti e fuori schermo (Territorio, Chi siamo, ecc.), la cui
+    // decodifica può ancora essere in corso proprio nel momento in cui parte
+    // lo scivolamento del preloader, causando uno scatto visibile.
+    const heroImg = document.querySelector('[data-hero-image] img');
+    const pageReady = heroImg
+      ? (heroImg.decode ? heroImg.decode().catch(() => {}) : new Promise((r) => {
+          if (heroImg.complete) return r();
+          heroImg.addEventListener('load', r, { once: true });
+          heroImg.addEventListener('error', r, { once: true });
+        }))
+      : Promise.resolve();
 
     const counter = { value: 0 };
     const progressTween = gsap.to(counter, {
