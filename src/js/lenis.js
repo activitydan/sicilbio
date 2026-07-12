@@ -30,11 +30,12 @@ export function getLenis() {
   return lenisInstance;
 }
 
-export function scrollToTarget(target) {
+export function scrollToTarget(target, options = {}) {
   if (lenisInstance) {
-    lenisInstance.scrollTo(target, { offset: 0 });
+    lenisInstance.scrollTo(target, { offset: 0, ...options });
   } else {
     const el = typeof target === 'string' ? document.querySelector(target) : target;
     el?.scrollIntoView({ behavior: 'smooth' });
+    options.onComplete?.();
   }
 }
