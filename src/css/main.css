@@ -23,6 +23,17 @@
     @apply bg-tomato text-paper;
   }
 
+  /* Deterrente al download casuale delle foto: disattiva il trascinamento
+     (drag) e il menu contestuale sulle immagini. Non è una protezione
+     reale (qualsiasi immagine mostrata dal browser resta comunque
+     visibile/salvabile da chi ha accesso agli strumenti sviluppatore),
+     solo un ostacolo al copia-incolla/salvataggio più immediato. */
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
   h1, h2, h3, h4 {
     @apply font-display;
   }

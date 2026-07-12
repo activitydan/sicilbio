@@ -1,5 +1,12 @@
 import './css/main.css';
 
+// Copre il caso di navigazione avanti/indietro con pagina ripristinata dalla
+// bfcache: qui main.js non viene rieseguito da capo, quindi lo script
+// sincrono in <head> non riparte — serve questo listener dedicato.
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) window.scrollTo(0, 0);
+});
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -35,6 +42,14 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 const backToTop = document.getElementById('back-to-top');
 backToTop?.addEventListener('click', () => scrollToTarget(0));
+
+// Deterrente al download casuale delle foto: niente "Salva immagine come"
+// dal menu contestuale. Non impedisce il download a chi usa gli strumenti
+// sviluppatore o disattiva JavaScript — nessuna immagine servita da un
+// browser può essere resa davvero non scaricabile.
+document.addEventListener('contextmenu', (e) => {
+  if (e.target instanceof HTMLImageElement) e.preventDefault();
+});
 
 initLenis();
 

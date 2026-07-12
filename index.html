@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Ogni ricaricamento/riapertura deve partire dalla landing in cima, non
+    // dal punto in cui si era rimasti. Va eseguito qui, sincrono e il prima
+    // possibile: uno script a module (differito) parte troppo tardi, quando
+    // il browser ha già ripristinato la vecchia posizione di scroll.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  </script>
   <!-- Il sito supporta solo il tema chiaro: evita che i browser con dark mode
        forzata (es. Opera) invertano euristicamente colori e testi. -->
   <meta name="color-scheme" content="only light" />
@@ -13,7 +21,7 @@
   <meta name="description" content="Sicilbio coltiva pomodori in Sicilia: pieno campo, filiera corta, qualità autentica dal sole al raccolto. Agricoltura biologica a Marina di Ragusa." />
   <meta name="keywords" content="Sicilbio, pomodori Sicilia, pomodoro ciliegino, pomodoro datterino, agricoltura biologica, filiera corta, ortofrutta Ragusa, Marina di Ragusa, prodotti Km0" />
   <meta name="author" content="Sicilbio" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, noimageindex" />
   <meta name="language" content="Italian" />
   <meta name="theme-color" content="#b8321c" />
   <link rel="canonical" href="https://www.sicilbio.it/" />
