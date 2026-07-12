@@ -4,9 +4,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   createIcons,
-  Menu, X, ArrowUpRight, Image, ArrowDown, ChevronDown, Sun, Wind, Droplets,
-  Mountain, Sprout, Shovel, Leaf, Hand, PackageCheck, Video, BadgeCheck,
-  HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp
+  Menu, X, ArrowUpRight, ArrowDown, ChevronDown, Sun, Wind, Droplets,
+  Mountain, Sprout, HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp
 } from 'lucide';
 
 import { initLenis, scrollToTarget } from './js/lenis.js';
@@ -26,9 +25,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 createIcons({
   icons: {
-    Menu, X, ArrowUpRight, Image, ArrowDown, ChevronDown, Sun, Wind, Droplets,
-    Mountain, Sprout, Shovel, Leaf, Hand, PackageCheck, Video, BadgeCheck,
-    HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp
+    Menu, X, ArrowUpRight, ArrowDown, ChevronDown, Sun, Wind, Droplets,
+    Mountain, Sprout, HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp
   }
 });
 
