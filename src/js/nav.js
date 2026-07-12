@@ -16,12 +16,17 @@ export function initNav() {
   });
 
   // Nasconde la nav quando si scorre verso il basso, la mostra risalendo
-  // (riduce l'ingombro visivo durante la lettura, senza perdere l'accesso al menu)
+  // (riduce l'ingombro visivo durante la lettura, senza perdere l'accesso al menu).
+  // Sospesa durante lo scroll programmatico verso una sezione (click su un
+  // link della nav): altrimenti quello scroll verso il basso nasconderebbe
+  // la nav proprio subito dopo che l'utente l'ha usata per navigare.
   let lastY = window.scrollY;
+  let suppressHide = false;
   ScrollTrigger.create({
     start: 0,
     end: 99999,
     onUpdate: (self) => {
+      if (suppressHide) return;
       const y = window.scrollY;
       const goingDown = self.direction === 1;
       if (goingDown && y > 160) {
@@ -41,7 +46,9 @@ export function initNav() {
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      scrollToTarget(target);
+      suppressHide = true;
+      header.style.transform = 'translateY(0)';
+      scrollToTarget(target, { onComplete: () => { suppressHide = false; } });
       closeMobileMenu();
     });
   });
