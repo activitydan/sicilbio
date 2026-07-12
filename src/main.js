@@ -20,6 +20,7 @@ import { initManifesto } from './js/manifesto.js';
 import { initTerritorio } from './js/territorio.js';
 import { initVarietaTilt } from './js/varieta.js';
 import { initFreschezza } from './js/freschezza.js';
+import { initThemeColor } from './js/theme-color.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +56,7 @@ initPreloader().then(() => {
   initTerritorio();
   initVarietaTilt();
   initFreschezza();
+  initThemeColor();
 
   ScrollTrigger.refresh();
 });
