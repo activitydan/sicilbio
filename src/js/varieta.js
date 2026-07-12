@@ -6,6 +6,7 @@ import { prefersReducedMotion } from './motion-state.js';
 // Il reveal in ingresso delle card è già gestito da [data-reveal] (reveal.js).
 export function initVarietaTilt() {
   if (prefersReducedMotion) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
   document.querySelectorAll('.variety-card').forEach((card) => {
     const strength = 8;

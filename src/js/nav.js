@@ -37,6 +37,7 @@ export function initNav() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const id = link.getAttribute('href');
+      if (id.length < 2) return; // ignora i placeholder "#" (es. social non ancora collegati)
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();

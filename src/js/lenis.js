@@ -1,5 +1,6 @@
 import Lenis from 'lenis';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { prefersReducedMotion } from './motion-state.js';
 
 let lenisInstance = null;
@@ -14,9 +15,7 @@ export function initLenis() {
     wheelMultiplier: 1
   });
 
-  lenis.on('scroll', () => {
-    if (window.ScrollTrigger) window.ScrollTrigger.update();
-  });
+  lenis.on('scroll', ScrollTrigger.update);
 
   gsap.ticker.add((time) => {
     lenis.raf(time * 1000);
