@@ -7,19 +7,11 @@
     background-color: theme('colors.paper');
     scroll-behavior: auto; /* Lenis owns smooth scrolling */
     color-scheme: only light;
-  }
-
-  /* Riserva lo spazio della scrollbar verticale anche quando è nascosta
-     (es. overflow:hidden durante il preloader): senza questo, su desktop
-     la comparsa/scomparsa della scrollbar classica cambia la larghezza
-     disponibile e fa scattare orizzontalmente il contenuto centrato.
-     Solo da lg in su: i browser mobile usano scrollbar overlay che non
-     riservano spazio, quindi qui creerebbe solo un gap vuoto sul bordo
-     destro senza risolvere alcun problema reale. */
-  @media (min-width: 1024px) {
-    html {
-      scrollbar-gutter: stable;
-    }
+    /* Riserva sempre lo spazio della scrollbar verticale, anche quando è
+       nascosta (es. overflow:hidden durante il preloader): senza questo,
+       la comparsa/scomparsa della scrollbar cambia la larghezza disponibile
+       e fa scattare orizzontalmente il contenuto centrato. */
+    scrollbar-gutter: stable;
   }
 
   body {
@@ -271,17 +263,9 @@
     @apply w-full;
   }
 
-  /* --- Stato nav: trasparente su hero (testo chiaro) -> solida on scroll (testo scuro) ---
-     Transizioni separate: lo scivolamento in nascondimento (transform) è
-     rapido apposta, per ridurre al minimo la finestra in cui la nav (chiara)
-     resta a metà schermo mentre scorre via sopra sezioni a sfondo scuro
-     (es. il manifesto pinnato) — altrimenti si vede una riga chiara
-     attraversare lo schermo durante lo scroll verso il basso. */
+  /* --- Stato nav: trasparente su hero (testo chiaro) -> solida on scroll (testo scuro) --- */
   #site-nav {
     color: theme('colors.paper');
-    transition: transform 0.2s theme('transitionTimingFunction.premium'),
-      background-color 0.4s ease, color 0.4s ease, backdrop-filter 0.4s ease,
-      box-shadow 0.4s ease;
   }
 
   #site-nav .nav-link::after {
