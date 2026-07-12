@@ -7,6 +7,11 @@
     background-color: theme('colors.paper');
     scroll-behavior: auto; /* Lenis owns smooth scrolling */
     color-scheme: only light;
+    /* Riserva sempre lo spazio della scrollbar verticale, anche quando è
+       nascosta (es. overflow:hidden durante il preloader): senza questo,
+       la comparsa/scomparsa della scrollbar cambia la larghezza disponibile
+       e fa scattare orizzontalmente il contenuto centrato. */
+    scrollbar-gutter: stable;
   }
 
   body {
