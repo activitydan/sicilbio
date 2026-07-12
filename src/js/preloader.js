@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { prefersReducedMotion } from './motion-state.js';
+import { getLenis } from './lenis.js';
 
 // Il preloader maschera il caricamento di font/asset e introduce il marchio
 // con un piccolo rituale: evita il flash-of-unstyled-content e imposta il tono
@@ -16,6 +17,15 @@ export function initPreloader() {
       root.style.display = 'none';
       return resolve();
     }
+
+    // Blocca lo scroll (nativo e Lenis) finché il preloader copre lo schermo:
+    // evita che la pagina si sposti sotto l'overlay durante il caricamento.
+    document.body.style.overflow = 'hidden';
+    getLenis()?.stop();
+    const unlockScroll = () => {
+      document.body.style.overflow = '';
+      getLenis()?.start();
+    };
 
     const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
     const pageReady = document.readyState === 'complete'
@@ -36,7 +46,7 @@ export function initPreloader() {
 
     // Attende sia il tween minimo (percezione di cura) sia il reale caricamento
     Promise.all([fontsReady, pageReady, progressTween]).then(() => {
-      const tl = gsap.timeline({ onComplete: resolve });
+      const tl = gsap.timeline({ onComplete: () => { unlockScroll(); resolve(); } });
       tl.to(root, {
         yPercent: -100,
         duration: 0.9,
