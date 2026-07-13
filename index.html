@@ -113,28 +113,30 @@
         <a href="#certificazioni" class="nav-link" data-i18n="nav.certificati">Certificati</a>
       </nav>
 
-      <div class="relative" data-lang-switcher>
-        <button type="button" data-lang-toggle aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua" class="flex items-center gap-1.5 text-sm font-semibold tracking-wide">
-          <i data-lucide="globe" class="w-4 h-4"></i>
-          <span data-lang-current>IT</span>
+      <div class="flex items-center gap-4 md:gap-6">
+        <div class="relative" data-lang-switcher>
+          <button type="button" data-lang-toggle aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua" class="flex items-center gap-1.5 text-sm font-semibold tracking-wide">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span data-lang-current>IT</span>
+          </button>
+          <ul data-lang-menu class="hidden absolute right-0 mt-3 w-40 rounded-2xl bg-paper text-ink shadow-xl border border-ink/10 overflow-hidden py-1.5 text-sm">
+            <li><button type="button" data-lang-option="it" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Italiano</button></li>
+            <li><button type="button" data-lang-option="en" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">English</button></li>
+            <li><button type="button" data-lang-option="es" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Español</button></li>
+            <li><button type="button" data-lang-option="fr" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Français</button></li>
+            <li><button type="button" data-lang-option="de" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Deutsch</button></li>
+          </ul>
+        </div>
+
+        <a href="#cta" class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold tracking-wide group">
+          <span data-i18n="nav.contatti">Contatti</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+        </a>
+
+        <button id="menu-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center" aria-label="Apri menu" data-i18n-attr="aria-label:nav.openMenu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
-        <ul data-lang-menu class="hidden absolute right-0 mt-3 w-40 rounded-2xl bg-paper text-ink shadow-xl border border-ink/10 overflow-hidden py-1.5 text-sm">
-          <li><button type="button" data-lang-option="it" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Italiano</button></li>
-          <li><button type="button" data-lang-option="en" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">English</button></li>
-          <li><button type="button" data-lang-option="es" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Español</button></li>
-          <li><button type="button" data-lang-option="fr" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Français</button></li>
-          <li><button type="button" data-lang-option="de" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Deutsch</button></li>
-        </ul>
       </div>
-
-      <a href="#cta" class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold tracking-wide group">
-        <span data-i18n="nav.contatti">Contatti</span>
-        <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-      </a>
-
-      <button id="menu-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center" aria-label="Apri menu" data-i18n-attr="aria-label:nav.openMenu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
     </div>
   </header>
 
@@ -147,9 +149,16 @@
     <a href="#certificazioni" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.certificati">Certificati</a>
     <a href="#calendario" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.calendario">Calendario</a>
     <a href="#cta" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.contatti">Contatti</a>
-    <button id="menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center text-paper" aria-label="Chiudi menu" data-i18n-attr="aria-label:nav.closeMenu">
-      <i data-lucide="x" class="w-7 h-7"></i>
-    </button>
+    <!-- Stesso container-edit e stessa altezza dell'header, così il tasto
+         chiudi cade esattamente sopra l'hamburger che l'ha aperto: un
+         right/top fisso si disallinea non appena il padding responsive
+         del container cambia (succede tra md e lg, prima che l'hamburger
+         sparisca del tutto a lg). -->
+    <div class="absolute top-0 inset-x-0 container-edit h-16 md:h-20 flex items-center justify-end">
+      <button id="menu-close" class="w-10 h-10 flex items-center justify-center text-paper" aria-label="Chiudi menu" data-i18n-attr="aria-label:nav.closeMenu">
+        <i data-lucide="x" class="w-7 h-7"></i>
+      </button>
+    </div>
   </div>
 
   <main>
