@@ -291,6 +291,11 @@
   #site-nav.is-solid .nav-link::after {
     background-color: theme('colors.tomato.DEFAULT');
   }
+
+  /* --- Selettore lingua --- */
+  .lang-option.is-active {
+    @apply text-tomato font-semibold;
+  }
 }
 
 @layer utilities {

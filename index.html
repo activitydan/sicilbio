@@ -107,18 +107,32 @@
       </a>
 
       <nav class="hidden lg:flex items-center gap-9">
-        <a href="#chi-siamo" class="nav-link">Chi siamo</a>
-        <a href="#territorio" class="nav-link">Territorio</a>
-        <a href="#varieta" class="nav-link">Varietà</a>
-        <a href="#certificazioni" class="nav-link">Certificati</a>
+        <a href="#chi-siamo" class="nav-link" data-i18n="nav.chiSiamo">Chi siamo</a>
+        <a href="#territorio" class="nav-link" data-i18n="nav.territorio">Territorio</a>
+        <a href="#varieta" class="nav-link" data-i18n="nav.varieta">Varietà</a>
+        <a href="#certificazioni" class="nav-link" data-i18n="nav.certificati">Certificati</a>
       </nav>
 
+      <div class="relative" data-lang-switcher>
+        <button type="button" data-lang-toggle aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua" class="flex items-center gap-1.5 text-sm font-semibold tracking-wide">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span data-lang-current>IT</span>
+        </button>
+        <ul data-lang-menu class="hidden absolute right-0 mt-3 w-40 rounded-2xl bg-paper text-ink shadow-xl border border-ink/10 overflow-hidden py-1.5 text-sm">
+          <li><button type="button" data-lang-option="it" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Italiano</button></li>
+          <li><button type="button" data-lang-option="en" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">English</button></li>
+          <li><button type="button" data-lang-option="es" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Español</button></li>
+          <li><button type="button" data-lang-option="fr" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Français</button></li>
+          <li><button type="button" data-lang-option="de" class="lang-option w-full text-left px-4 py-2 hover:bg-ink/5 transition-colors">Deutsch</button></li>
+        </ul>
+      </div>
+
       <a href="#cta" class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold tracking-wide group">
-        Contatti
+        <span data-i18n="nav.contatti">Contatti</span>
         <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
       </a>
 
-      <button id="menu-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center" aria-label="Apri menu">
+      <button id="menu-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center" aria-label="Apri menu" data-i18n-attr="aria-label:nav.openMenu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
@@ -127,13 +141,13 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="fixed inset-0 z-[70] bg-ink translate-y-[-100%] transition-transform duration-500 ease-premium flex flex-col items-center justify-center overflow-y-auto gap-8 lg:hidden">
     <img src="/assets/logo-sicilbio.svg" alt="Sicilbio" class="mobile-menu-logo w-[300px] h-[130px] object-contain mb-2" />
-    <a href="#chi-siamo" class="mobile-link text-paper font-display text-3xl">Chi siamo</a>
-    <a href="#territorio" class="mobile-link text-paper font-display text-3xl">Territorio</a>
-    <a href="#varieta" class="mobile-link text-paper font-display text-3xl">Varietà</a>
-    <a href="#certificazioni" class="mobile-link text-paper font-display text-3xl">Certificati</a>
-    <a href="#calendario" class="mobile-link text-paper font-display text-3xl">Calendario</a>
-    <a href="#cta" class="mobile-link text-paper font-display text-3xl">Contatti</a>
-    <button id="menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center text-paper" aria-label="Chiudi menu">
+    <a href="#chi-siamo" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.chiSiamo">Chi siamo</a>
+    <a href="#territorio" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.territorio">Territorio</a>
+    <a href="#varieta" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.varieta">Varietà</a>
+    <a href="#certificazioni" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.certificati">Certificati</a>
+    <a href="#calendario" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.calendario">Calendario</a>
+    <a href="#cta" class="mobile-link text-paper font-display text-3xl" data-i18n="nav.contatti">Contatti</a>
+    <button id="menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center text-paper" aria-label="Chiudi menu" data-i18n-attr="aria-label:nav.closeMenu">
       <i data-lucide="x" class="w-7 h-7"></i>
     </button>
   </div>
@@ -157,32 +171,32 @@
       <div class="relative z-10 h-full container-edit flex flex-col justify-end pb-20 md:pb-28">
         <span class="kicker text-paper/90 mb-6" data-hero-fade>
           <span class="w-6 h-px bg-gold"></span>
-          Agricoltura siciliana d'eccellenza
+          <span data-i18n="hero.kicker">Agricoltura siciliana d'eccellenza</span>
         </span>
 
         <h1 class="font-display text-paper text-[13vw] leading-[0.95] md:text-[6.2vw] md:leading-[0.95] max-w-[16ch]">
-          <span class="split-line" data-hero-line><span>Il sole di Sicilia,</span></span><br/>
-          <span class="split-line" data-hero-line><span class="italic text-tomato-bright">raccolto</span></span> <span class="split-line" data-hero-line><span>al punto giusto.</span></span>
+          <span class="split-line" data-hero-line><span data-i18n="hero.line1">Il sole di Sicilia,</span></span><br/>
+          <span class="split-line" data-hero-line><span class="italic text-tomato-bright" data-i18n="hero.line2">raccolto</span></span> <span class="split-line" data-hero-line><span data-i18n="hero.line3">al punto giusto.</span></span>
         </h1>
 
-        <p class="mt-8 max-w-md text-paper/75 text-base md:text-lg" data-hero-fade>
+        <p class="mt-8 max-w-md text-paper/75 text-base md:text-lg" data-hero-fade data-i18n="hero.paragraph">
           Pieno campo, filiera corta, qualità che si vede e si sente:
           Sicilbio coltiva pomodori nel cuore del Mediterraneo.
         </p>
 
         <div class="mt-10 flex items-center gap-6" data-hero-fade>
           <a href="#chi-siamo" class="btn-magnetic" data-magnetic>
-            <span>Chi siamo</span>
+            <span data-i18n="hero.ctaChiSiamo">Chi siamo</span>
             <i data-lucide="arrow-down" class="w-4 h-4"></i>
           </a>
-          <a href="#cta" class="text-paper/85 text-sm font-semibold border-b border-paper/30 pb-1 hover:border-paper transition-colors">
+          <a href="#cta" class="text-paper/85 text-sm font-semibold border-b border-paper/30 pb-1 hover:border-paper transition-colors" data-i18n="hero.ctaContattaci">
             Contattaci
           </a>
         </div>
       </div>
 
       <div class="absolute bottom-8 right-6 md:right-10 z-10 flex flex-col items-center gap-2 text-paper/60" data-scroll-cue>
-        <span class="text-[10px] uppercase tracking-widest2 [writing-mode:vertical-rl]">Scorri</span>
+        <span class="text-[10px] uppercase tracking-widest2 [writing-mode:vertical-rl]" data-i18n="hero.scrollCue">Scorri</span>
         <i data-lucide="chevron-down" class="w-4 h-4"></i>
       </div>
     </section>
@@ -193,27 +207,27 @@
     <section class="relative bg-tomato py-5 overflow-hidden">
       <div class="marquee-track flex whitespace-nowrap will-change-transform" data-marquee>
         <div class="flex items-center gap-8 pr-8">
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">100% Siciliano</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p1">100% Siciliano</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Coltivato al sole</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p2">Coltivato al sole</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Raccolto a mano</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p3">Raccolto a mano</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Filiera corta</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p4">Filiera corta</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Dal campo alla tavola</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p5">Dal campo alla tavola</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
         </div>
         <div class="flex items-center gap-8 pr-8" aria-hidden="true">
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">100% Siciliano</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p1">100% Siciliano</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Coltivato al sole</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p2">Coltivato al sole</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Raccolto a mano</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p3">Raccolto a mano</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Filiera corta</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p4">Filiera corta</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
-          <span class="font-display italic text-paper/95 text-xl md:text-2xl">Dal campo alla tavola</span>
+          <span class="font-display italic text-paper/95 text-xl md:text-2xl" data-i18n="marquee.p5">Dal campo alla tavola</span>
           <i data-lucide="sun" class="w-4 h-4 text-paper/60"></i>
         </div>
       </div>
@@ -225,10 +239,10 @@
     <section id="manifesto" class="relative bg-ink text-paper min-h-[calc(100lvh+32px)] flex items-center py-[18vh] md:py-[22vh]">
       <div class="container-edit">
         <p class="font-display text-[8vw] md:text-[3.6vw] leading-[1.25] md:leading-[1.3] max-w-5xl" data-manifesto-text>
-          <span data-line>Un pomodoro non si produce.</span>
-          <span data-line>Si aspetta, si osserva,</span>
-          <span data-line>si raccoglie quando è pronto lui</span>
-          <span data-line class="text-tomato-bright italic">— non noi.</span>
+          <span data-line data-i18n="manifesto.line1">Un pomodoro non si produce.</span>
+          <span data-line data-i18n="manifesto.line2">Si aspetta, si osserva,</span>
+          <span data-line data-i18n="manifesto.line3">si raccoglie quando è pronto lui</span>
+          <span data-line class="text-tomato-bright italic" data-i18n="manifesto.line4">— non noi.</span>
         </p>
       </div>
     </section>
@@ -241,11 +255,11 @@
     <section id="chi-siamo" class="relative bg-paper py-28 md:py-36">
       <div class="container-edit grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         <div data-reveal>
-          <span class="kicker">Chi siamo</span>
+          <span class="kicker" data-i18n="chiSiamo.kicker">Chi siamo</span>
           <h2 class="mt-6 font-display text-4xl md:text-5xl leading-tight max-w-lg">
-            Coltiviamo pazienza,<br/> prima ancora che pomodori.
+            <span data-i18n="chiSiamo.h2Line1">Coltiviamo pazienza,</span><br/> <span data-i18n="chiSiamo.h2Line2">prima ancora che pomodori.</span>
           </h2>
-          <p class="mt-6 text-ink/70 max-w-lg leading-relaxed">
+          <p class="mt-6 text-ink/70 max-w-lg leading-relaxed" data-i18n="chiSiamo.paragraph">
             Sicilbio nasce in Sicilia, dove il sole, il vento e la vicinanza al mare
             disegnano un microclima unico per la coltivazione del pomodoro.
             Lavoriamo in pieno campo, rispettando i tempi naturali della pianta
@@ -256,19 +270,19 @@
           <div class="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 max-w-lg">
             <div>
               <span class="font-display text-4xl md:text-5xl text-tomato" data-counter data-target="20">0</span>
-              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50">Ettari coltivati</p>
+              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50" data-i18n="chiSiamo.statHectares">Ettari coltivati</p>
             </div>
             <div>
               <span class="font-display text-4xl md:text-5xl text-tomato" data-counter data-target="30">0</span>
-              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50">Anni di esperienza</p>
+              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50" data-i18n="chiSiamo.statYears">Anni di esperienza</p>
             </div>
             <div>
               <span class="font-display text-4xl md:text-5xl text-tomato" data-counter data-target="5">0</span>
-              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50">Varietà dell'orto</p>
+              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50" data-i18n="chiSiamo.statGardenVarieties">Varietà dell'orto</p>
             </div>
             <div>
               <span class="font-display text-4xl md:text-5xl text-tomato" data-counter data-target="8">0</span>
-              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50">Varietà di pomodoro</p>
+              <p class="mt-1 text-xs uppercase tracking-widest2 text-ink/50" data-i18n="chiSiamo.statTomatoVarieties">Varietà di pomodoro</p>
             </div>
           </div>
         </div>
@@ -291,11 +305,11 @@
         <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/60 pointer-events-none"></div>
 
         <div class="relative z-10 container-edit">
-          <span class="kicker text-paper/90">Il territorio</span>
-          <h2 class="mt-6 font-display text-4xl md:text-6xl leading-tight max-w-2xl">
+          <span class="kicker text-paper/90" data-i18n="territorio.kicker">Il territorio</span>
+          <h2 class="mt-6 font-display text-4xl md:text-6xl leading-tight max-w-2xl" data-i18n="territorio.h2">
             Sole, mare e terra rossa.
           </h2>
-          <p class="mt-6 max-w-lg text-paper/70 leading-relaxed">
+          <p class="mt-6 max-w-lg text-paper/70 leading-relaxed" data-i18n="territorio.paragraph">
             Le nostre coltivazioni crescono dove l'escursione termica,
             l'esposizione solare e la brezza marina creano condizioni ideali
             per uno sviluppo lento e naturale del frutto.
@@ -304,24 +318,24 @@
           <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl">
             <div class="territorio-card p-5 rounded-2xl bg-paper/5 border border-paper/10 backdrop-blur-sm" data-territorio-card>
               <i data-lucide="sun" class="w-5 h-5 text-gold"></i>
-              <p class="mt-4 font-display text-2xl break-words">300+</p>
-              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2">Giorni di sole/anno</p>
+              <p class="mt-4 font-display text-2xl break-words" data-i18n="territorio.card1Value">300+</p>
+              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2" data-i18n="territorio.card1Label">Giorni di sole/anno</p>
               <!-- TODO: confermare dato reale -->
             </div>
             <div class="territorio-card p-5 rounded-2xl bg-paper/5 border border-paper/10 backdrop-blur-sm" data-territorio-card>
               <i data-lucide="wind" class="w-5 h-5 text-gold"></i>
-              <p class="mt-4 font-display text-2xl break-words">Costante</p>
-              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2">Brezza marina</p>
+              <p class="mt-4 font-display text-2xl break-words" data-i18n="territorio.card2Value">Costante</p>
+              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2" data-i18n="territorio.card2Label">Brezza marina</p>
             </div>
             <div class="territorio-card p-5 rounded-2xl bg-paper/5 border border-paper/10 backdrop-blur-sm" data-territorio-card>
               <i data-lucide="droplets" class="w-5 h-5 text-gold"></i>
-              <p class="mt-4 font-display text-[21px]">Controllata</p>
-              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2">Irrigazione</p>
+              <p class="mt-4 font-display text-[21px]" data-i18n="territorio.card3Value">Controllata</p>
+              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2" data-i18n="territorio.card3Label">Irrigazione</p>
             </div>
             <div class="territorio-card p-5 rounded-2xl bg-paper/5 border border-paper/10 backdrop-blur-sm" data-territorio-card>
               <i data-lucide="mountain" class="w-5 h-5 text-gold"></i>
-              <p class="mt-4 font-display text-2xl break-words">Argilloso</p>
-              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2">Terreno sabbioso</p>
+              <p class="mt-4 font-display text-2xl break-words" data-i18n="territorio.card4Value">Argilloso</p>
+              <p class="mt-1 text-xs text-paper/55 uppercase tracking-widest2" data-i18n="territorio.card4Label">Terreno sabbioso</p>
             </div>
           </div>
         </div>
@@ -335,7 +349,7 @@
     <section id="varieta" class="relative bg-paper py-28 md:py-36">
       <div class="container-edit">
         <div class="max-w-xl" data-reveal>
-          <span class="kicker">Le varietà di pomodoro</span>
+          <span class="kicker" data-i18n="varieta.kicker">Le varietà di pomodoro</span>
         </div>
 
         <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-5">
@@ -343,7 +357,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/ciliegino.jpg" alt="Cherry" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Cherry</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.cherry">Cherry</h3>
             </div>
           </article>
 
@@ -351,7 +365,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/ciliegino-a-grappolo.jpg" alt="Cherry Grappolo" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Cherry Grappolo</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.cherryGrappolo">Cherry Grappolo</h3>
             </div>
           </article>
 
@@ -359,7 +373,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/datterino.jpg" alt="Datterino" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Datterino</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.datterino">Datterino</h3>
             </div>
           </article>
 
@@ -367,7 +381,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/grappolo.jpg" alt="Grappolo" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Grappolo</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.grappolo">Grappolo</h3>
             </div>
           </article>
 
@@ -375,7 +389,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/piccadilly.jpg" alt="Piccadilly" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Piccadilly</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.piccadilly">Piccadilly</h3>
             </div>
           </article>
 
@@ -383,7 +397,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/pomodoro-ovale.jpg" alt="Pomodoro Ovale" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Pomodoro Ovale</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.pomodoroOvale">Pomodoro Ovale</h3>
             </div>
           </article>
 
@@ -391,7 +405,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/cuore-di-bue.png" alt="Cuore di Bue" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Cuore di Bue</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.cuoreDiBue">Cuore di Bue</h3>
             </div>
           </article>
 
@@ -399,14 +413,14 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/varieta/san-marzano.png" alt="San Marzano" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">San Marzano</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="varieta.sanMarzano">San Marzano</h3>
             </div>
           </article>
         </div>
 
         <div id="altri-prodotti" class="max-w-xl mt-24 md:mt-28" data-reveal>
-          <span class="kicker">Oltre il pomodoro</span>
-          <p class="mt-6 text-ink/60 max-w-md">
+          <span class="kicker" data-i18n="altriProdotti.kicker">Oltre il pomodoro</span>
+          <p class="mt-6 text-ink/60 max-w-md" data-i18n="altriProdotti.paragraph">
             La stessa cura e lo stesso metodo, applicati ad altri ortaggi
             della tradizione mediterranea.
           </p>
@@ -417,7 +431,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/altri-prodotti/peperoni.png" alt="Peperoni" class="variety-photo h-full w-full object-contain pt-4" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Peperoni</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="altriProdotti.peperoni">Peperoni</h3>
             </div>
           </article>
 
@@ -425,7 +439,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/altri-prodotti/peperoni-mini-snack.png" alt="Peperoni mini snack" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Peperoni mini snack</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="altriProdotti.peperoniMiniSnack">Peperoni mini snack</h3>
             </div>
           </article>
 
@@ -433,7 +447,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/altri-prodotti/melanzane.png" alt="Melanzane" class="variety-photo h-full w-full object-contain pt-4" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Melanzane</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="altriProdotti.melanzane">Melanzane</h3>
             </div>
           </article>
 
@@ -441,7 +455,7 @@
             <img src="/assets/varieta/sfondo-bianco.png" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
             <img src="/assets/altri-prodotti/zucchine.png" alt="Zucchine" class="variety-photo h-full w-full object-contain" />
             <div class="variety-overlay absolute inset-0 flex flex-col justify-end items-start p-6">
-              <h3 class="font-display text-ink text-2xl">Zucchine</h3>
+              <h3 class="font-display text-ink text-2xl" data-i18n="altriProdotti.zucchine">Zucchine</h3>
             </div>
           </article>
         </div>
@@ -461,10 +475,10 @@
 
       <div class="relative z-10 text-center container-edit">
         <p class="font-display text-paper text-[9vw] md:text-[4.5vw] leading-[1.1]" data-freschezza-claim>
-          <span data-word>Dal</span> <span data-word>campo</span> <span data-word>alla</span> <span data-word>tavola</span>
-          <span data-word class="text-tomato-bright italic">in</span> <span data-word class="text-tomato-bright italic">24</span> <span data-word class="text-tomato-bright italic">ore.</span>
+          <span data-word data-i18n="freschezza.word1">Dal</span> <span data-word data-i18n="freschezza.word2">campo</span> <span data-word data-i18n="freschezza.word3">alla</span> <span data-word data-i18n="freschezza.word4">tavola</span>
+          <span data-word class="text-tomato-bright italic" data-i18n="freschezza.word5">in</span> <span data-word class="text-tomato-bright italic" data-i18n="freschezza.word6">24</span> <span data-word class="text-tomato-bright italic" data-i18n="freschezza.word7">ore.</span>
         </p>
-        <p class="mt-8 text-paper/65 max-w-md mx-auto" data-reveal>
+        <p class="mt-8 text-paper/65 max-w-md mx-auto" data-reveal data-i18n="freschezza.paragraph">
           Raccogliamo e confezioniamo nello stesso giorno, per portare in tavola
           il sapore autentico del pomodoro appena colto.
         </p>
@@ -479,8 +493,8 @@
       <div class="container-edit">
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
         <div data-reveal>
-          <span class="kicker">Il nostro metodo</span>
-          <h2 class="mt-6 font-display text-4xl md:text-5xl leading-tight max-w-md">
+          <span class="kicker" data-i18n="metodo.kicker">Il nostro metodo</span>
+          <h2 class="mt-6 font-display text-4xl md:text-5xl leading-tight max-w-md" data-i18n="metodo.h2">
             Valori che si vedono nel prodotto.
           </h2>
 
@@ -490,8 +504,8 @@
                 <i data-lucide="sprout" class="w-5 h-5 text-olive"></i>
               </span>
               <div>
-                <h3 class="font-display text-lg">Agricoltura sostenibile</h3>
-                <p class="mt-1 text-ink/60 text-sm max-w-sm">Pratiche colturali che rispettano suolo, acqua e biodiversità del territorio.</p>
+                <h3 class="font-display text-lg" data-i18n="metodo.item1Title">Agricoltura sostenibile</h3>
+                <p class="mt-1 text-ink/60 text-sm max-w-sm" data-i18n="metodo.item1Desc">Pratiche colturali che rispettano suolo, acqua e biodiversità del territorio.</p>
               </div>
             </li>
             <li class="flex gap-5">
@@ -499,8 +513,8 @@
                 <i data-lucide="droplets" class="w-5 h-5 text-olive"></i>
               </span>
               <div>
-                <h3 class="font-display text-lg">Irrigazione controllata</h3>
-                <p class="mt-1 text-ink/60 text-sm max-w-sm">Consumo idrico ottimizzato, per un raccolto di qualità senza sprechi.</p>
+                <h3 class="font-display text-lg" data-i18n="metodo.item2Title">Irrigazione controllata</h3>
+                <p class="mt-1 text-ink/60 text-sm max-w-sm" data-i18n="metodo.item2Desc">Consumo idrico ottimizzato, per un raccolto di qualità senza sprechi.</p>
               </div>
             </li>
             <li class="flex gap-5">
@@ -508,8 +522,8 @@
                 <i data-lucide="hand-heart" class="w-5 h-5 text-olive"></i>
               </span>
               <div>
-                <h3 class="font-display text-lg">Raccolta selettiva</h3>
-                <p class="mt-1 text-ink/60 text-sm max-w-sm">Ogni pomodoro è raccolto al giusto grado di maturazione, non prima.</p>
+                <h3 class="font-display text-lg" data-i18n="metodo.item3Title">Raccolta selettiva</h3>
+                <p class="mt-1 text-ink/60 text-sm max-w-sm" data-i18n="metodo.item3Desc">Ogni pomodoro è raccolto al giusto grado di maturazione, non prima.</p>
               </div>
             </li>
             <li class="flex gap-5">
@@ -517,8 +531,8 @@
                 <i data-lucide="scan-line" class="w-5 h-5 text-olive"></i>
               </span>
               <div>
-                <h3 class="font-display text-lg">Tracciabilità di filiera</h3>
-                <p class="mt-1 text-ink/60 text-sm max-w-sm">Ogni lotto è tracciato dal campo al confezionamento.</p>
+                <h3 class="font-display text-lg" data-i18n="metodo.item4Title">Tracciabilità di filiera</h3>
+                <p class="mt-1 text-ink/60 text-sm max-w-sm" data-i18n="metodo.item4Desc">Ogni lotto è tracciato dal campo al confezionamento.</p>
               </div>
             </li>
           </ul>
@@ -527,7 +541,7 @@
         <div id="certificazioni" data-reveal>
           <span class="kicker">
             <i class="fa-solid fa-stamp text-tomato text-sm"></i>
-            Certificazioni
+            <span data-i18n="certificazioni.kicker">Certificazioni</span>
           </span>
           <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-lg">
             <!-- ASSET: 6 slot logo certificazione — sostituire ciascun .asset-placeholder con <img> del logo -->
@@ -552,8 +566,8 @@
       </div>
 
       <div id="calendario" class="mt-16 md:mt-24 pt-10 border-t border-ink/10" data-reveal>
-        <span class="kicker">Calendario di produzione</span>
-        <p class="mt-4 text-ink/60 text-sm leading-relaxed max-w-lg">
+        <span class="kicker" data-i18n="calendario.kicker">Calendario di produzione</span>
+        <p class="mt-4 text-ink/60 text-sm leading-relaxed max-w-lg" data-i18n="calendario.paragraph">
           La disponibilità stagionale delle nostre varietà, mese per mese.
         </p>
         <div class="mt-6 rounded-2xl border border-ink/10 overflow-hidden">
@@ -574,12 +588,12 @@
       <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink/70 to-ink pointer-events-none"></div>
 
       <div class="relative z-10 container-edit text-center flex flex-col items-center">
-        <span class="kicker text-paper/90">Parliamone</span>
+        <span class="kicker text-paper/90" data-i18n="cta.kicker">Parliamone</span>
         <h2 class="mt-6 font-display text-paper text-[10vw] md:text-6xl leading-[1.05] max-w-3xl" data-reveal>
-          Porta in tavola<br/> il sapore della Sicilia.
+          <span data-i18n="cta.h2Line1">Porta in tavola</span><br/> <span data-i18n="cta.h2Line2">il sapore della Sicilia.</span>
         </h2>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@sicilbio.it" target="_blank" rel="noopener noreferrer" class="btn-magnetic mt-12" data-magnetic>
-          <span>Richiedi informazioni</span>
+          <span data-i18n="cta.button">Richiedi informazioni</span>
           <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
       </div>
@@ -594,38 +608,38 @@
       <div class="grid md:grid-cols-4 gap-12 pb-14 border-b border-paper/10">
         <div class="md:col-span-2">
           <img src="/assets/logo-sicilbio.svg" alt="Sicilbio" class="w-[147px] h-16 md:w-[184px] md:h-20 object-contain" />
-          <p class="mt-5 max-w-xs text-sm leading-relaxed">
+          <p class="mt-5 max-w-xs text-sm leading-relaxed" data-i18n="footer.description">
             Pomodori coltivati in Sicilia, in pieno campo, con filiera corta
             e rispetto dei tempi naturali.
           </p>
           <div class="mt-6 flex items-center gap-4">
-            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full border border-paper/20 flex items-center justify-center hover:bg-paper hover:text-ink transition-colors">
+            <a href="#" aria-label="Instagram" data-i18n-attr="aria-label:footer.igAria" class="w-9 h-9 rounded-full border border-paper/20 flex items-center justify-center hover:bg-paper hover:text-ink transition-colors">
               <i data-lucide="instagram" class="w-4 h-4"></i>
             </a>
-            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full border border-paper/20 flex items-center justify-center hover:bg-paper hover:text-ink transition-colors">
+            <a href="#" aria-label="Facebook" data-i18n-attr="aria-label:footer.fbAria" class="w-9 h-9 rounded-full border border-paper/20 flex items-center justify-center hover:bg-paper hover:text-ink transition-colors">
               <i data-lucide="facebook" class="w-4 h-4"></i>
             </a>
           </div>
         </div>
 
         <div>
-          <p class="text-xs uppercase tracking-widest2 text-paper/40 mb-5">Menu</p>
+          <p class="text-xs uppercase tracking-widest2 text-paper/40 mb-5" data-i18n="footer.menuTitle">Menu</p>
           <ul class="space-y-3 text-sm">
-            <li><a href="#chi-siamo" class="hover:text-paper transition-colors">Chi siamo</a></li>
-            <li><a href="#territorio" class="hover:text-paper transition-colors">Territorio</a></li>
-            <li><a href="#varieta" class="hover:text-paper transition-colors">Varietà</a></li>
-            <li><a href="#certificazioni" class="hover:text-paper transition-colors">Certificati</a></li>
+            <li><a href="#chi-siamo" class="hover:text-paper transition-colors" data-i18n="nav.chiSiamo">Chi siamo</a></li>
+            <li><a href="#territorio" class="hover:text-paper transition-colors" data-i18n="nav.territorio">Territorio</a></li>
+            <li><a href="#varieta" class="hover:text-paper transition-colors" data-i18n="nav.varieta">Varietà</a></li>
+            <li><a href="#certificazioni" class="hover:text-paper transition-colors" data-i18n="nav.certificati">Certificati</a></li>
           </ul>
         </div>
 
         <div>
-          <p class="text-xs uppercase tracking-widest2 text-paper/40 mb-5">Contatti</p>
+          <p class="text-xs uppercase tracking-widest2 text-paper/40 mb-5" data-i18n="footer.contactsTitle">Contatti</p>
           <ul class="space-y-3 text-sm">
             <li class="flex items-start gap-2">
               <i data-lucide="map-pin" class="w-4 h-4 shrink-0 mt-0.5"></i>
               <span>
-                <strong class="font-semibold text-paper/70">Sede legale:</strong> Via Putignano, 9, 97010 Marina di Ragusa (RG)<br/>
-                <strong class="font-semibold text-paper/70">Sede operativa:</strong> Contrada Castellana, 97010 Marina di Ragusa (RG)
+                <strong class="font-semibold text-paper/70" data-i18n="footer.sedeLegale">Sede legale:</strong> Via Putignano, 9, 97010 Marina di Ragusa (RG)<br/>
+                <strong class="font-semibold text-paper/70" data-i18n="footer.sedeOperativa">Sede operativa:</strong> Contrada Castellana, 97010 Marina di Ragusa (RG)
               </span>
             </li>
             <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 shrink-0"></i> sales@sicilbio.it</li>
@@ -635,9 +649,9 @@
       </div>
 
       <div class="pt-8 flex flex-row items-center justify-between gap-4 text-xs text-paper/40 text-left">
-        <span>© <span id="year"></span> Sicilbio. Tutti i diritti riservati.<span class="hidden md:inline"> — </span><span class="block md:inline">P.IVA 01487730887</span></span>
+        <span>© <span id="year"></span> Sicilbio. <span data-i18n="footer.copyright">Tutti i diritti riservati.</span><span class="hidden md:inline"> — </span><span class="block md:inline">P.IVA 01487730887</span></span>
         <button id="back-to-top" class="flex items-center gap-2 hover:text-paper transition-colors">
-          Torna su <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+          <span data-i18n="footer.backToTop">Torna su</span> <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
         </button>
       </div>
     </div>

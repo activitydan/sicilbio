@@ -12,12 +12,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   createIcons,
   Menu, X, ArrowUpRight, ArrowDown, ChevronDown, Sun, Wind, Droplets,
-  Mountain, Sprout, HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp
+  Mountain, Sprout, HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp, Globe
 } from 'lucide';
 
 import { initLenis, scrollToTarget } from './js/lenis.js';
 import { initPreloader } from './js/preloader.js';
 import { initNav } from './js/nav.js';
+import { initI18n } from './js/i18n.js';
 import { prepareHeroIntro, playHeroIntro, initHeroScroll } from './js/hero.js';
 import { initMarquee } from './js/marquee.js';
 import { initReveal } from './js/reveal.js';
@@ -33,7 +34,7 @@ gsap.registerPlugin(ScrollTrigger);
 createIcons({
   icons: {
     Menu, X, ArrowUpRight, ArrowDown, ChevronDown, Sun, Wind, Droplets,
-    Mountain, Sprout, HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp
+    Mountain, Sprout, HandHeart, ScanLine, Instagram, Facebook, MapPin, Mail, Phone, ArrowUp, Globe
   }
 });
 
@@ -50,6 +51,11 @@ backToTop?.addEventListener('click', () => scrollToTarget(0));
 document.addEventListener('contextmenu', (e) => {
   if (e.target instanceof HTMLImageElement) e.preventDefault();
 });
+
+// Applica la lingua salvata (o l'italiano di default) prima di qualsiasi
+// animazione di reveal testo: evita un lampo di testo italiano seguito
+// dal cambio lingua a preloader già sparito.
+initI18n();
 
 initLenis();
 
