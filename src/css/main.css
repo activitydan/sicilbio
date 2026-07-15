@@ -296,6 +296,13 @@
   .lang-option.is-active {
     @apply text-tomato font-semibold;
   }
+
+  /* Riduce al 75% tutto ciò che segue l'hero/marquee/manifesto ("Chi siamo"
+     compreso): scala in proporzione layout, testo e immagini di quella
+     porzione di sito, lasciando invariata la parte sopra. */
+  .scale-75-scope {
+    zoom: 0.75;
+  }
 }
 
 @layer utilities {
