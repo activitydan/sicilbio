@@ -298,10 +298,14 @@
   }
 
   /* Riduce al 75% tutto ciò che segue l'hero/marquee/manifesto ("Chi siamo"
-     compreso): scala in proporzione layout, testo e immagini di quella
-     porzione di sito, lasciando invariata la parte sopra. */
-  .scale-75-scope {
-    zoom: 0.75;
+     compreso), solo su mobile/tablet (sotto il breakpoint lg usato per il
+     resto del sito): scala in proporzione layout, testo e immagini di
+     quella porzione di sito, lasciando invariata la parte sopra e tutto
+     il resto su desktop, dove sta già al 100% di suo. */
+  @media (max-width: 1023px) {
+    .scale-75-scope {
+      zoom: 0.75;
+    }
   }
 }
 
