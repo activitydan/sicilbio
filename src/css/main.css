@@ -7,11 +7,6 @@
     background-color: theme('colors.paper');
     scroll-behavior: auto; /* Lenis owns smooth scrolling */
     color-scheme: only light;
-    /* Riduce le dimensioni di tutto il sito al 75%: scala in proporzione
-       layout, testo e immagini (verificato che px, rem e vw si comportano
-       tutti allo stesso modo con zoom, a differenza di un trucco basato
-       sul font-size della root, che lascerebbe fuori i valori in px/vw). */
-    zoom: 0.75;
     /* Riserva sempre lo spazio della scrollbar verticale, anche quando è
        nascosta (es. overflow:hidden durante il preloader): senza questo,
        la comparsa/scomparsa della scrollbar cambia la larghezza disponibile
