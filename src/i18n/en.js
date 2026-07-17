@@ -118,6 +118,12 @@ export default {
     backToTop: 'Back to top',
     copyright: 'All rights reserved.',
     igAria: 'Instagram',
-    fbAria: 'Facebook'
+    fbAria: 'Facebook',
+    credit: 'Website by'
+  },
+  cookie: {
+    message: 'We use technical cookies required for the site to work and, with your consent, third-party cookies (social icons, typefaces) to improve your browsing experience.',
+    accept: 'Accept',
+    reject: 'Decline'
   }
 };
