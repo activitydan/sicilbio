@@ -28,6 +28,15 @@ function applyLanguage(lang) {
     if (typeof value === 'string') el.textContent = value;
   });
 
+  // Come data-i18n, ma sostituisce l'innerHTML invece del solo testo:
+  // serve per i blocchi con formattazione ricca (titoli, elenchi, grassetti)
+  // come le pagine Privacy/Cookie Policy, dove tradurre riga per riga con
+  // data-i18n non è praticabile.
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const value = getByPath(dict, el.getAttribute('data-i18n-html'));
+    if (typeof value === 'string') el.innerHTML = value;
+  });
+
   document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
     el.getAttribute('data-i18n-attr').split(',').forEach((pair) => {
       const [attr, key] = pair.split(':').map((s) => s.trim());
