@@ -126,5 +126,60 @@ export default {
     message: "Usiamo cookie tecnici necessari al funzionamento del sito e, con il tuo consenso, cookie di terze parti (icone social, caratteri tipografici) per migliorare l'esperienza di navigazione.",
     accept: 'Accetta',
     reject: 'Rifiuta'
+  },
+  policyPage: {
+    privacyTitle: 'Privacy Policy',
+    cookieTitle: 'Cookie Policy',
+    privacyHtml: `
+      <p><em>Informativa ai sensi degli artt. 13-14 del Regolamento UE 2016/679 ("GDPR"). Ultimo aggiornamento: 17 luglio 2026.</em></p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">1. Titolare del trattamento</h3>
+      <p>Il Titolare del trattamento dei dati è Sicilbio, con sede legale in Via Putignano, 9, 97010 Marina di Ragusa (RG) e sede operativa in Contrada Castellana, 97010 Marina di Ragusa (RG), P.IVA 01487730887. Per qualsiasi richiesta relativa al trattamento dei dati personali è possibile scrivere a <span class="whitespace-nowrap">info@sicilbio.it</span>.</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">2. Tipologie di dati raccolti</h3>
+      <p>Durante la normale navigazione del sito sicilbio.com vengono trattate alcune categorie di dati:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong class="text-ink/80">Dati di navigazione:</strong> indirizzo IP, tipo di browser, sistema operativo, pagine visitate e relativi orari di accesso, raccolti automaticamente dai sistemi informatici preposti al funzionamento del sito (es. log del servizio di hosting).</li>
+        <li><strong class="text-ink/80">Dati forniti volontariamente:</strong> se ci si mette in contatto tramite gli indirizzi email indicati nel sito o tramite il pulsante "Richiedi informazioni", vengono trattati i dati contenuti nel messaggio (nome, indirizzo email, contenuto della richiesta).</li>
+        <li><strong class="text-ink/80">Preferenze di navigazione:</strong> la lingua selezionata e la scelta espressa tramite il banner cookie vengono salvate localmente nel browser (local storage), senza essere trasmesse ai nostri server.</li>
+      </ul>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">3. Finalità e base giuridica del trattamento</h3>
+      <p>I dati vengono trattati per: erogare correttamente i contenuti del sito e garantirne la sicurezza (legittimo interesse del Titolare, art. 6.1.f GDPR); rispondere alle richieste di informazioni inviate volontariamente (esecuzione di misure precontrattuali su richiesta dell'interessato, art. 6.1.b GDPR); consentire, ove attivate, funzionalità di terze parti soggette a consenso (consenso dell'interessato, art. 6.1.a GDPR).</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">4. Destinatari dei dati e trasferimenti extra-UE</h3>
+      <p>Alcuni dati possono essere trattati da fornitori terzi che agiscono come responsabili del trattamento o titolari autonomi: Vercel Inc. (hosting del sito); Google LLC, tramite il caricamento dei caratteri tipografici Google Fonts direttamente dai server di Google, che può comportare la trasmissione dell'indirizzo IP verso server anche extra SEE; Cloudflare Inc., tramite il caricamento della libreria di icone Font Awesome dalla relativa rete CDN. Questi trasferimenti, ove extra-UE, avvengono sulla base delle garanzie previste dalla normativa vigente (es. clausole contrattuali standard).</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">5. Periodo di conservazione</h3>
+      <p>I dati di navigazione sono conservati per il tempo strettamente necessario a garantire la sicurezza del sito, nei limiti previsti dalla normativa vigente. I dati forniti volontariamente via email sono conservati per il tempo necessario a evadere la richiesta e per l'eventuale gestione di rapporti commerciali successivi, salvo diversi obblighi di legge.</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">6. Diritti dell'interessato</h3>
+      <p>In qualità di interessato hai diritto di chiedere al Titolare, in qualsiasi momento, l'accesso ai tuoi dati, la rettifica o la cancellazione degli stessi, la limitazione del trattamento, l'opposizione al trattamento e la portabilità dei dati, scrivendo a <span class="whitespace-nowrap">info@sicilbio.it</span>. Hai inoltre diritto di proporre reclamo all'Autorità Garante per la protezione dei dati personali (www.garanteprivacy.it) qualora ritenga che il trattamento dei tuoi dati sia contrario alla normativa vigente.</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">7. Modifiche alla presente informativa</h3>
+      <p>Questa informativa può essere soggetta a modifiche nel tempo, anche in relazione a nuove norme di settore. Si consiglia di consultarla periodicamente.</p>
+    `,
+    cookieHtml: `
+      <p><em>Ultimo aggiornamento: 17 luglio 2026.</em></p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">1. Cosa sono i cookie</h3>
+      <p>I cookie sono piccoli file di testo che i siti visitati inviano al dispositivo dell'utente, dove vengono memorizzati per essere ritrasmessi agli stessi siti alla visita successiva. Esistono anche tecnologie simili, come il local storage del browser, utilizzate per finalità analoghe.</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">2. Cookie utilizzati da questo sito</h3>
+      <p>Il sito sicilbio.com <strong class="text-ink/80">non utilizza cookie di profilazione né cookie pubblicitari o di tracciamento</strong> a fini di marketing. Utilizza invece:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong class="text-ink/80">Local storage tecnico:</strong> per memorizzare la lingua selezionata e la scelta espressa tramite il banner cookie (accettazione o rifiuto), esclusivamente sul dispositivo dell'utente, senza alcuna finalità di profilazione.</li>
+        <li><strong class="text-ink/80">Risorse di terze parti:</strong> per la corretta visualizzazione grafica vengono caricati caratteri tipografici da Google Fonts (fonts.googleapis.com, fonts.gstatic.com) e icone dalla libreria Font Awesome tramite la rete CDN di Cloudflare (cdnjs.cloudflare.com). Il caricamento di queste risorse può comportare la trasmissione dell'indirizzo IP ai rispettivi fornitori, secondo le rispettive informative privacy.</li>
+      </ul>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">3. Cookie di terze parti collegati ai social network</h3>
+      <p>Il sito include collegamenti (icone) ai profili social di Sicilbio. Il semplice collegamento non installa cookie di terze parti; eventuali cookie vengono installati solo cliccando sull'icona e accedendo alla piattaforma social esterna, che ha una propria e autonoma informativa cookie.</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">4. Come gestire il consenso</h3>
+      <p>Al primo accesso al sito viene mostrato un banner che permette di accettare o rifiutare l'utilizzo delle risorse di terze parti sopra descritte. La scelta viene salvata nel browser e può essere modificata in qualsiasi momento cancellando i dati di navigazione (cronologia, cookie e dati dei siti) dalle impostazioni del proprio browser.</p>
+
+      <h3 class="font-display text-base text-ink mt-6 mb-1">5. Come disabilitare i cookie dal browser</h3>
+      <p>È possibile gestire le preferenze relative ai cookie direttamente nelle impostazioni del proprio browser, impedendo ad esempio l'installazione di cookie di terze parti o eliminando quelli già presenti. Per maggiori informazioni consulta la documentazione del browser che utilizzi (Chrome, Firefox, Safari, Edge).</p>
+    `
   }
 };
