@@ -10,8 +10,8 @@ export default {
     closeMenu: 'Menü schließen'
   },
   hero: {
-    kicker: 'Sizilianische landwirtschaftliche Exzellenz',
-    line1: 'Die sizilianische Sonne,',
+    kicker: 'Sizilianische Exzellenz',
+    line1: 'Siziliens Sonne,',
     line2: 'geerntet',
     line3: 'im richtigen Moment.',
     paragraph: 'Freilandanbau, kurze Lieferketten, Qualität, die man sieht und schmeckt: Sicilbio baut Tomaten im Herzen des Mittelmeers an.',
