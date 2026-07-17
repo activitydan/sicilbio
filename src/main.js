@@ -29,6 +29,7 @@ import { initTerritorio } from './js/territorio.js';
 import { initVarietaTilt } from './js/varieta.js';
 import { initFreschezza } from './js/freschezza.js';
 import { initCookieConsent } from './js/cookie-consent.js';
+import { initPolicyModal } from './js/policy-modal.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +79,7 @@ initPreloader().then(() => {
   initVarietaTilt();
   initFreschezza();
   initCookieConsent();
+  initPolicyModal();
 
   ScrollTrigger.refresh();
 });

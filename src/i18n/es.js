@@ -119,7 +119,8 @@ export default {
     copyright: 'Todos los derechos reservados.',
     igAria: 'Instagram',
     fbAria: 'Facebook',
-    credit: 'Sitio web realizado por'
+    credit: 'Sitio web realizado por',
+    policy: 'Política'
   },
   cookie: {
     message: 'Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y, con tu consentimiento, cookies de terceros (iconos sociales, tipografías) para mejorar la experiencia de navegación.',

@@ -119,7 +119,8 @@ export default {
     copyright: 'All rights reserved.',
     igAria: 'Instagram',
     fbAria: 'Facebook',
-    credit: 'Website by'
+    credit: 'Website by',
+    policy: 'Policy'
   },
   cookie: {
     message: 'We use technical cookies required for the site to work and, with your consent, third-party cookies (social icons, typefaces) to improve your browsing experience.',
