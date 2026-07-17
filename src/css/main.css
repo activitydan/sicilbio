@@ -308,6 +308,13 @@
     }
   }
 
+  /* Riduce al 90% solo l'hero, solo quando la lingua attiva è il tedesco
+     (data-i18n/i18n.js imposta document.documentElement.lang ad ogni
+     cambio lingua): il resto del sito e le altre lingue restano al 100%. */
+  html[lang="de"] #hero {
+    zoom: 0.9;
+  }
+
   /* --- Banner cookie: nascosto/scivolato finché JS non lo mostra
      (dopo aver superato "Chi siamo", vedi cookie-consent.js) --- */
   #cookie-banner {
