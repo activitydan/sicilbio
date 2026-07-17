@@ -667,9 +667,29 @@
           <span data-i18n="footer.backToTop">Torna su</span> <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
         </button>
       </div>
+
+      <div class="mt-4 pt-4 border-t border-paper/5 text-center text-[11px] text-paper/30">
+        <span data-i18n="footer.credit">Sito web realizzato da</span> <span class="text-paper/50 font-medium">Spazio Desk</span>
+      </div>
     </div>
   </footer>
 
+  <!-- ============================================================
+       COOKIE CONSENT
+       Compare solo dopo aver superato la sezione "Chi siamo" (vedi
+       cookie-consent.js) e solo se non è già stata fatta una scelta.
+  ============================================================= -->
+  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-sm z-[90]">
+    <div class="bg-ink text-paper rounded-2xl shadow-2xl border border-paper/10 p-5">
+      <p class="text-xs text-paper/75 leading-relaxed" data-i18n="cookie.message">
+        Usiamo cookie tecnici necessari al funzionamento del sito e, con il tuo consenso, cookie di terze parti (icone social, caratteri tipografici) per migliorare l'esperienza di navigazione.
+      </p>
+      <div class="mt-4 flex items-center gap-3">
+        <button id="cookie-accept" type="button" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-tomato text-paper text-xs font-semibold hover:bg-tomato-bright transition-colors" data-i18n="cookie.accept">Accetta</button>
+        <button id="cookie-reject" type="button" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-paper/20 text-paper/70 text-xs font-semibold hover:text-paper hover:border-paper/40 transition-colors" data-i18n="cookie.reject">Rifiuta</button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

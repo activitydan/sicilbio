@@ -307,6 +307,21 @@
       zoom: 0.75;
     }
   }
+
+  /* --- Banner cookie: nascosto/scivolato finché JS non lo mostra
+     (dopo aver superato "Chi siamo", vedi cookie-consent.js) --- */
+  #cookie-banner {
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+    transition: opacity 0.5s theme('transitionTimingFunction.premium'), transform 0.5s theme('transitionTimingFunction.premium');
+  }
+
+  #cookie-banner.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
 
 @layer utilities {

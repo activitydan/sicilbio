@@ -118,6 +118,12 @@ export default {
     backToTop: 'Torna su',
     copyright: 'Tutti i diritti riservati.',
     igAria: 'Instagram',
-    fbAria: 'Facebook'
+    fbAria: 'Facebook',
+    credit: 'Sito web realizzato da'
+  },
+  cookie: {
+    message: "Usiamo cookie tecnici necessari al funzionamento del sito e, con il tuo consenso, cookie di terze parti (icone social, caratteri tipografici) per migliorare l'esperienza di navigazione.",
+    accept: 'Accetta',
+    reject: 'Rifiuta'
   }
 };
