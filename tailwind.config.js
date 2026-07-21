@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,html}'],
+  future: {
+    // Su touch (mobile) non esiste un vero hover: toccando un link, il
+    // browser applica comunque lo stato :hover e lo lascia "incastrato"
+    // finché non si tocca altrove — es. il tasto social restava bianco
+    // al ritorno da Instagram/Facebook. Con questo flag le utility hover:
+    // si attivano solo sui dispositivi con hover reale (mouse).
+    hoverOnlyWhenSupported: true
+  },
   theme: {
     extend: {
       colors: {
