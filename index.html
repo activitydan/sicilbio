@@ -557,25 +557,28 @@
           </span>
           <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-lg">
             <!-- ASSET: 6 slot logo certificazione — sostituire ciascun .asset-placeholder con <img> del logo -->
-            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white" data-reveal>
+            <!-- Su desktop (sm:) Bio Suisse e GlobalG.A.P. si scambiano di
+                 posto tramite sm:order-*, lasciando invariato l'ordine su
+                 mobile (dove non c'è alcuna classe order applicata). -->
+            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white sm:order-1" data-reveal>
               <img src="/assets/certificazioni/ifs-food.png" alt="Certificazione IFS Food" class="h-full w-full object-cover" />
             </div>
-            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white" data-reveal>
+            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white sm:order-2" data-reveal>
               <img src="/assets/certificazioni/eu-bio.png" alt="Certificazione Agricoltura Biologica UE" class="h-full w-full object-cover" />
             </div>
-            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white" data-reveal>
+            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white sm:order-4" data-reveal>
               <img src="/assets/certificazioni/bio-suisse.png" alt="Certificazione Bio Suisse" class="h-full w-full object-cover" />
             </div>
-            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white p-4" data-reveal>
+            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white p-4 sm:order-3" data-reveal>
               <img src="/assets/certificazioni/globalgap.png" alt="Certificazione GlobalG.A.P." class="h-full w-full object-contain" />
             </div>
-            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white" data-reveal>
+            <div class="aspect-square rounded-2xl overflow-hidden flex items-center justify-center bg-white sm:order-5" data-reveal>
               <img src="/assets/certificazioni/demeter.png" alt="Certificazione Demeter" class="h-full w-full object-contain" />
             </div>
             <!-- Stesso ordine di griglia della card GlobalG.A.P. (4ª), così su
                  mobile (2 colonne) questa didascalia cade nella cella subito
                  sotto di essa, dove appartiene concettualmente. -->
-            <div class="flex items-start justify-end" data-reveal>
+            <div class="flex items-start justify-end sm:order-6" data-reveal>
               <p class="text-xs text-ink/50 tracking-wide text-right">GGN: 8099999403352</p>
             </div>
           </div>
